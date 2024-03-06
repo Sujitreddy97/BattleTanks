@@ -5,11 +5,17 @@ using UnityEngine;
 public class TankService : MonoBehaviour
 {
 
-    public GameObject tankPrefab;
+    public TankView tankView;
 
     void Start()
     {
-        GameObject.Instantiate(tankPrefab, tankPrefab.transform.position, Quaternion.identity);
+        CreateTank();
+    }
+
+    private void CreateTank()
+    {
+        TankModel tankModel = new TankModel();
+        TankController tankController = new TankController(tankModel, tankView);
     }
 
 }
